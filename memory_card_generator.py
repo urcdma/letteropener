@@ -1,5 +1,7 @@
 import genanki
-from typing import List, Tuple
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='memory_card_generator.log', filemode='w')
 
 class MemoryCardGenerator:
     def __init__(self, deck_name: str = 'Python Basics'):
@@ -20,13 +22,18 @@ class MemoryCardGenerator:
         self.deck = genanki.Deck(2059400110, deck_name)
 
     def add_card(self, front: str, back: str):
+        logging.info(f"Adding card with front: {front} and back: {back}.")
         note = genanki.Note(
             model=self.model,
             fields=[front, back])
         self.deck.add_note(note)
+        logging.info(f"Card added successfully.")
 
     def generate_deck(self) -> genanki.Deck:
+        logging.info("Generating deck.")
         return self.deck
 
     def save_deck_to_file(self, filename: str = 'output.apkg'):
+        logging.info(f"Saving deck to file: {filename}.")
         genanki.Package(self.deck).write_to_file(filename)
+        logging.info("Deck saved successfully.")
