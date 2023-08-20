@@ -1,7 +1,7 @@
 import openai
 
 class GPT3Model:
-    def __init__(self, api_key: str = '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'):
+    def __init__(self, api_key: str = 'sk-wFrmJJr3UYRkwTA1EMNeT3BlbkFJLqqPcBbxGFRtJg'):
         openai.api_key = api_key
 
     def describe_code(self, code: str) -> str:
