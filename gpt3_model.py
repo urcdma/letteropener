@@ -12,7 +12,7 @@ class GPT3Model:
         logging.info("Describing code using GPT-3 model.")
         response = openai.Completion.create(
             engine="davinci",
-            prompt=f"This is a Python code: \n{code}\nWhat does this code do?",
+            prompt=f"这是一个Python代码：\n{code}\n这段代码的功能是什么？",
             temperature=0.5,
             max_tokens=100
         )
@@ -23,7 +23,7 @@ class GPT3Model:
         logging.info("Evaluating code using GPT-3 model.")
         response = openai.Completion.create(
             engine="davinci",
-            prompt=f"This is a Python code: \n{code}\nWhat are the main functions and structures of this code?",
+            prompt=f"这是一个Python代码：\n{code}\n这段代码的主要功能和结构是什么？",
             temperature=0.5,
             max_tokens=100
         )
@@ -34,7 +34,7 @@ class GPT3Model:
         logging.info("Listing knowledge points using GPT-3 model.")
         response = openai.Completion.create(
             engine="davinci",
-            prompt=f"This is a Python code: \n{code}\nWhat are the technical knowledge points related to this code's function and structure?",
+            prompt=f"这是一个Python代码：\n{code}\n与这段代码的功能和结构相关的技术知识点是什么？",
             temperature=0.5,
             max_tokens=100
         )
@@ -47,7 +47,7 @@ class GPT3Model:
         # 获取中文描述
         response_cn = openai.Completion.create(
             engine="davinci",
-            prompt=f"Explain the concept '{point}' in simple Chinese for beginners.",
+            prompt=f"为初学者简单地用中文解释概念'{point}'。",
             temperature=0.5,
             max_tokens=100
         )
@@ -56,7 +56,7 @@ class GPT3Model:
         # 获取英文描述
         response_en = openai.Completion.create(
             engine="davinci",
-            prompt=f"Explain the concept '{point}' in simple English for beginners.",
+            prompt=f"为初学者简单地用英文解释概念'{point}'。",
             temperature=0.5,
             max_tokens=100
         )
