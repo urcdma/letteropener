@@ -1,6 +1,17 @@
 const { ipcRenderer } = require('electron');
-
+const merge = require('deepmerge');
 console.log("renderer.js is loaded");
+
+const assignState = (state, extensionsList) => {
+    return Object.assign.apply(null, [{ state }, ...extensionsList.map(fn => fn(state))]);
+};
+
+const mergeObjectStructures = (destination, source) => merge(destination, source);
+
+module.exports = {
+    assignState,
+    mergeObjectStructures
+};
 
 function handleFileUpload() {
     const fileInput = document.getElementById('fileInput');
