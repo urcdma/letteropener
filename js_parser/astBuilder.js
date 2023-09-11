@@ -1,5 +1,5 @@
 const babelParser = require('@babel/parser');
-const { mergeObjectStructures } = require('shared/utils/composition');
+const { assignState, mergeObjectStructures } = require('../renderer');
 const { TOKEN_KEYS } = require('shared/constants');
 const { setupPointer } = require('shared/utils/treeLevelsPointer');
 const { logError } = require('shared/utils/logger');
