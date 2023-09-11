@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Parser App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="code-section">
+    <!-- Existing elements for Python code -->
+    <h2>Upload or Paste Python Code</h2>
+    <input type="file" id="fileInput" onchange="handleFileUpload()">
+    <textarea id="codeArea" placeholder="Paste your code here..."></textarea>
+    <div id="actualCode"></div>
+    <h3>Python Code Parsing Result</h3>
+    <svg id="graph"></svg>
+    <div id="nodeDetails"></div>
+</div>
+
+<div class="code-section">
+    <!-- New elements for JavaScript code -->
+    <h2>Upload or Paste JavaScript Code</h2>
+    <input type="file" id="jsFileInput" onchange="handleJSFileUpload()"> <!-- Optional -->
+    <textarea id="jsCodeArea" placeholder="Paste your JavaScript code here..."></textarea>
+    <div id="jsActualCode"></div>
+    <h3>JavaScript Code Parsing Result</h3>
+    <svg id="jsGraph"></svg>
+    <div id="jsNodeDetails"></div>
+</div>
+
+<script src="renderer.js"></script>
+</body>
+</html>
